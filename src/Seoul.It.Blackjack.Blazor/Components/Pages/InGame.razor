@@ -1,13 +1,14 @@
 @page "/InGame"
 
 @using Seoul.It.Blackjack.Client
+@using Seoul.It.Blackjack.Core.Contracts
 @inject BlackjackClient Client
 @inject NavigationManager NavigationManager
 
 
 <h1>BlackJack Table</h1> <br>
 <button @onclick="Exit">나가기</button>
-<button @onclick="Hit">히트</button>
+<button @onclick="OnInitialized">히트</button>
 <button @onclick="Stand">스탠드</button>
 
 
@@ -17,16 +18,23 @@
 		NavigationManager.NavigateTo("/");
 	}
 
-	public void Hit()
+	protected override void OnInitialized()
 	{
-		NavigationManager.NavigateTo("/");
+		Client.StateChanged += OnStateChanged;
+		base.OnInitialized();
+	}
+
+	void OnStateChanged(GameState state)
+	{
+		var ss = state.Players.Count;
 	}
 
 	public void Stand()
 	{
 		NavigationManager.NavigateTo("/");
 	}
-
+	
+		
 
 
 }
