@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace Seoul.It.Blackjack.Core.Contracts;
 
@@ -17,7 +17,7 @@ public sealed class GameState
     /// </summary>
     public List<PlayerState> Players { get; set; } = new List<PlayerState>();
 
-    /// <summary>
+    /// <summ   ary>
     /// 딜러 플레이어 ID입니다.
     /// </summary>
     public string DealerPlayerId { get; set; } = string.Empty;
