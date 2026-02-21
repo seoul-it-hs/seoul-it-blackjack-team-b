@@ -23,6 +23,11 @@
 
 	public void OnClicked()
 	{
+		if (string.IsNullOrWhiteSpace(_playerName))
+		{
+			return;
+		}
+
 		NavigationManager.NavigateTo("/InGame"); 
 	}
 

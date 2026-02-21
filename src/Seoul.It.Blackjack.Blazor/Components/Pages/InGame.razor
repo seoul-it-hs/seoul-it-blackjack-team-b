@@ -1,10 +1,32 @@
 @page "/InGame"
 
+@using Seoul.It.Blackjack.Client
+@inject BlackjackClient Client
+@inject NavigationManager NavigationManager
+
 
 <h1>BlackJack Table</h1> <br>
-<button>나가기</button> <button>히트</button> <button>스탠드</button>
+<button @onclick="Exit">나가기</button>
+<button @onclick="Hit">히트</button>
+<button @onclick="Stand">스탠드</button>
 
 
 @code {
+	public void Exit()
+	{
+		NavigationManager.NavigateTo("/");
+	}
+
+	public void Hit()
+	{
+		NavigationManager.NavigateTo("/");
+	}
+
+	public void Stand()
+	{
+		NavigationManager.NavigateTo("/");
+	}
+
+
 
 }
