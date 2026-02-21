@@ -1,4 +1,6 @@
 @page "/"
+
+
 @using Seoul.It.Blackjack.Client
 @inject BlackjackClient Client
 @inject NavigationManager NavigationManager
@@ -10,7 +12,7 @@
 <input type="text" name="name" @bind="_playerName" /> <br>
 딜러키 입력
 <input type="text" name="dealerkey" @bind="_dealerKey" /> <br>	
-
+<br>
 <button @onclick=@OnClicked>확인</button>
 </div>
 
@@ -21,7 +23,7 @@
 
 	void OnClicked()
 	{
-		NavigationManager.NavigateTo("/next");
+		NavigationManager.NavigateTo("/inGame");
 	}
 
 	
