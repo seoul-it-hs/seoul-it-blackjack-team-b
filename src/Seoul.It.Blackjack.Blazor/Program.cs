@@ -1,10 +1,17 @@
+using Microsoft.Extensions.Options;
 using Seoul.It.Blackjack.Blazor.Components;
+using Seoul.It.Blackjack.Client.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddBlackjackClient(options =>
+{
+    options.HubUrl = "https://10.46.41.84:5000";
+});
 
 var app = builder.Build();
 
