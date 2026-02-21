@@ -1,6 +1,7 @@
 @page "/"
 @using Seoul.It.Blackjack.Client
 @inject BlackjackClient Client
+@inject NavigationManager NavigationManager
 
 
 <h3>입장</h3>
@@ -13,5 +14,13 @@
 
 
 @code {
+	private static _playerName = string.Empty;
+	private static _dealerKey = string.Empty;
+
+	void OnClicked()
+	{
+		NavigationManager.NavigateTo("/next");
+	}
+
 	
 }
