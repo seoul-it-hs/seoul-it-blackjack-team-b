@@ -3,19 +3,21 @@
 @inject BlackjackClient Client
 @inject NavigationManager NavigationManager
 
-
+<div align="center">
+<img src="/BlackJack.png" alt="Alternate Text" />
 <h3>입장</h3>
 닉네임 입력
-<input type="text" name="name" value="" /> <br>
+<input type="text" name="name" @bind="_playerName" /> <br>
 딜러키 입력
-<input type="text" name="dealerkey" value="" /> <br>	
+<input type="text" name="dealerkey" @bind="_dealerKey" /> <br>	
 
-<input type="button" name="Ok" value="확인" />
+<button @onclick=@OnClicked>확인</button>
+</div>
 
 
 @code {
-	private static _playerName = string.Empty;
-	private static _dealerKey = string.Empty;
+	private string _playerName = string.Empty;
+	private string _dealerKey = string.Empty;
 
 	void OnClicked()
 	{
