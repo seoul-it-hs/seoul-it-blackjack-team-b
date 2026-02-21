@@ -11,8 +11,4 @@
     <ProjectReference Include="..\Seoul.It.Blackjack.Core\Seoul.It.Blackjack.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Components\Pages\" />
-  </ItemGroup>
-
 </Project>
