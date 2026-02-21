@@ -7,26 +7,38 @@
 
 
 <h1>BlackJack Table</h1> <br>
+
+
 <button @onclick="Exit">나가기</button>
 <button @onclick="OnInitialized">히트</button>
 <button @onclick="Stand">스탠드</button>
 
 
 @code {
+	[SupplyParameterFromQuery(Name ="name")]
+	public string UserName { get; set; }
+
+	[SupplyParameterFromQuery(Name = "key")]
+	public string DealerKey { get; set; }
+	[Parameter]
+	public GameState State { get; set; }
+
+	
 	public void Exit()
 	{
 		NavigationManager.NavigateTo("/");
 	}
 
-	protected override void OnInitialized()
+	protected override async  Task OnInitializedAsync()
 	{
 		Client.StateChanged += OnStateChanged;
-		base.OnInitialized();
+		await Client.ConnectAsync("http://10.46.41.84:5000/blackjack");
+		await Client.JoinAsync(UserName,DealerKey);
 	}
 
 	void OnStateChanged(GameState state)
 	{
-		var ss = state.Players.Count;
+		State = state;
 	}
 
 	public void Stand()

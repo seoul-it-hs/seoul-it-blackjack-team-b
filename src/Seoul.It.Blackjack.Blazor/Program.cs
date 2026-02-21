@@ -10,7 +10,15 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddBlackjackClient(options =>
 {
-    options.HubUrl = "https://10.46.41.84:5050";
+    options.HubUrl = "https://10.46.41.84:5000";
+});
+
+builder.Services.AddCors(o =>
+{
+    o.AddDefaultPolicy(p => p
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
 });
 
 var app = builder.Build();
@@ -22,8 +30,6 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
-app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 app.UseAntiforgery();
