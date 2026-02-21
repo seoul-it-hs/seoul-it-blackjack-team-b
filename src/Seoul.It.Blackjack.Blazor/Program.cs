@@ -10,7 +10,7 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddBlackjackClient(options =>
 {
-    options.HubUrl = "https://10.46.41.84:5000";
+    options.HubUrl = "https://10.46.41.84:5050";
 });
 
 var app = builder.Build();
